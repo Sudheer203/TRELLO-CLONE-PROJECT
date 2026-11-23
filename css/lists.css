@@ -1,0 +1,13 @@
+.list{flex:0 0 280px;background:#f4f5f7;border-radius:var(--radius);padding:10px;max-height:100%;display:flex;flex-direction:column;box-shadow:0 1px 3px #0002}
+.list-head{display:flex;align-items:center;gap:4px;padding:2px 2px 8px}
+.list-head h3{flex:1;font-size:.95rem;overflow-wrap:anywhere}
+.list-cards{display:flex;flex-direction:column;gap:8px;overflow-y:auto;padding:2px}
+.add-card-btn,.add-list-btn{border:0;background:transparent;color:var(--muted);text-align:left;padding:8px;border-radius:6px;margin-top:6px;font-weight:500}
+.add-card-btn:hover{background:#0000001a;color:var(--ink)}
+.add-list-tile{flex:0 0 280px}
+.add-list-btn{width:100%;background:#ffffff66;color:var(--ink);padding:12px;font-weight:600}
+.add-list-btn:hover{background:#ffffffa6}
+.board{min-height:0;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.list,.add-list-tile{scroll-snap-align:start}
+/* @media (max-width:900px){.list,.add-list-tile{flex-basis:260px}}
+@media (max-width:600px){.list,.add-list-tile{flex-basis:84vw;max-width:340px}.add-card-btn{padding:12px 8px}} */

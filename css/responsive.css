@@ -1,0 +1,90 @@
+/* responsive.css - loaded LAST.
+   Desktop / laptop (1024px+): Trello-style horizontal board, lists side by side.
+   Tablet / iPad portrait (600-1023px): lists in a 2-column grid, page scrolls down.
+   Phone (under 600px): lists stacked in ONE full-width column, page scrolls down. */
+
+/* ---------- All sizes ---------- */
+.navbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+.board-header{padding-left:max(20px,env(safe-area-inset-left))}
+.board{min-height:0;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));padding-bottom:max(24px,env(safe-area-inset-bottom))}
+.list{max-height:100%}
+@media (hover:none){.card-actions{opacity:1}}
+
+/* ---------- Laptop ---------- */
+@media (min-width:1024px) and (max-width:1399px){
+  .list,.add-list-tile{flex-basis:280px}
+}
+
+/* ---------- Large desktop ---------- */
+@media (min-width:1400px){
+  .board-header h1{font-size:1.6rem}
+  .board{gap:18px}
+  .list,.add-list-tile{flex-basis:300px}
+  .modal-box.large{max-width:720px}
+}
+
+/* ---------- Tablet + phone: vertical scrolling grid ---------- */
+@media (max-width:1023px){
+  .board{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+    align-items:start;
+    align-content:start;
+    overflow-x:hidden;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    padding:10px 16px max(24px,env(safe-area-inset-bottom));
+  }
+  .navbar,.board-header{padding-left:16px;padding-right:16px}
+  .list,.add-list-tile{flex:none;width:100%;max-width:none;max-height:none}
+  .list-cards{overflow:visible}
+  .card{padding:12px}
+  .card-title{font-size:.95rem}
+  .modal-box.large{max-width:600px}
+}
+
+/* ---------- Phone: one column ---------- */
+@media (max-width:599px){
+  .board{grid-template-columns:minmax(0,1fr);gap:12px;padding:8px 12px max(24px,env(safe-area-inset-bottom))}
+  .navbar,.board-header{padding-left:12px;padding-right:12px}
+  .navbar{padding-top:8px;padding-bottom:8px}
+  .brand{font-size:1rem}
+  .btn-text{display:none}
+  .btn-light{padding:9px 12px}
+  .btn{min-height:40px}
+  .icon-btn{width:38px;height:38px}
+  .board-header{padding-top:10px;padding-bottom:2px}
+  .board-header h1{font-size:1.2rem}
+  .error-box{margin:8px 12px}
+  .add-card-btn{padding:12px 8px}
+  .card-actions{top:6px;right:6px}
+  .card-modal-head h2{font-size:1.05rem}
+  .section-head{flex-wrap:wrap;gap:8px}
+  .checklist{padding:10px}
+  .checkitem{padding:8px 2px}
+  .checkitem input{width:22px;height:22px}
+  .progress-row{flex-wrap:wrap}
+  .toasts{left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom))}
+  .toast{max-width:none}
+}
+
+/* ---------- Pop-ups ---------- */
+@media (max-width:767px){
+  .modal{padding:0;align-items:end}
+  .modal-box{border-radius:16px 16px 0 0;max-width:100%!important;padding-bottom:max(22px,env(safe-area-inset-bottom))}
+  .modal-box.large{max-height:92vh;max-height:92dvh}
+  .modal-box input[type=text]{font-size:16px}
+  .modal-actions .btn{flex:1}
+}
+
+/* ---------- Landscape phones (short screens) ---------- */
+@media (max-height:500px) and (orientation:landscape) and (max-width:1023px){
+  .board{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .navbar{padding-top:4px;padding-bottom:4px}
+  .board-header{padding-top:4px}
+  .board-header h1{font-size:1rem}
+  .modal{align-items:center;padding:8px}
+  .modal-box{border-radius:12px}
+  .modal-box.large{max-height:94vh;max-height:94dvh}
+}
